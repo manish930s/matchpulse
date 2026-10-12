@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mp-paper: #fef5e4;
+  --color-mp-sheet: #fffdf8;
+  --color-mp-ink: #171514;
+  --color-mp-body: #342922;
+  --color-mp-muted: #6b5b4e;
+  --color-mp-rule: #d8c9b9;
+  --color-mp-red: #fb0701;
+  --color-mp-red-deep: #cb011e;
+  --color-mp-red-wash: #f7d5cf;
+  --color-mp-soft: #eee3d5;
+  --color-mp-score: #101010;
+  --color-mp-silver: #c7c3bd;
+  --font-sans: "Red Hat Text", ui-sans-serif, system-ui, sans-serif;
+  --shadow-mp-sheet: 0 8px 24px rgb(70 45 30 / 8%);
+  --shadow-mp-score: 0 12px 28px rgb(70 45 30 / 15%);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    background: var(--color-mp-paper);
+    color: var(--color-mp-body);
+    font-family: var(--font-sans);
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  ::selection {
+    background: rgb(251 7 1 / 18%);
+    color: var(--color-mp-ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-mp-red-deep);
+    outline-offset: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-mp-paper);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 2px solid var(--color-mp-paper);
+    border-radius: 999px;
+    background: #bca996;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-mp-red-deep);
+  }
+}

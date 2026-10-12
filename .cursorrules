@@ -1,0 +1,20 @@
+# Cursor & AI Instructions for MatchPulse
+
+## Project Context
+MatchPulse is an AI-powered cricket explainer app built with Next.js 14 App Router, TypeScript, and Google Gemini 2.0 Flash. It translates match tension into plain Hinglish/English cards in under 5 seconds.
+
+## Code Style & Standards
+- Strict TypeScript: no 'any' types anywhere
+- Functional React components with hooks, wrapped in React.memo where appropriate
+- Pure functions for cricket math in lib/cricket.ts
+- Zod schemas for all runtime validations at API boundaries
+- Mobile-first dark UI styling with pitch-green (#00d26a) accent
+
+## Architectural Patterns
+- API route pipeline: Validate input (Zod) → Fast-path check (completed match) → Compute deterministic stats → Call AI → Validate schema → Return JSON
+- Deterministic ground truth: Never let AI calculate RRR or balls remaining; compute them in pure functions first
+- Error resilience: Return structured errors (400, 429, 500) and graceful mock fallbacks when API keys are absent
+
+## Testing
+- Unit and property-based tests in Vitest with fast-check (1000 runs)
+- E2E tests with Playwright
